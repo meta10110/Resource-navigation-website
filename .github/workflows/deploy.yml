@@ -30,17 +30,13 @@ jobs:
         with:
           node-version: '18'
           cache: 'npm'
-          cache-dependency-path: 'e2b-sandbox-project/package-lock.json'
+          cache-dependency-path: 'package-lock.json'
       
       - name: Install dependencies
-        run: |
-          cd e2b-sandbox-project
-          npm ci
+        run: npm ci
       
       - name: Build
-        run: |
-          cd e2b-sandbox-project
-          npm run build
+        run: npm run build
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -48,7 +44,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './e2b-sandbox-project/dist'
+          path: './dist'
   
   deploy:
     environment:
