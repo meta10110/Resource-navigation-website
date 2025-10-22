@@ -2,7 +2,7 @@
 # 依赖文件 - 不需要上传
 # ============================================
 node_modules/
-package-lock.json
+# package-lock.json 保留用于 CI/CD 构建
 pnpm-lock.yaml
 yarn.lock
 
