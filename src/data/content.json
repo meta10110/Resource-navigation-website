@@ -14,7 +14,7 @@
     {
       "icon": "👥",
       "label": "用户访问",
-      "value": "500+",
+      "value": "3000+",
       "color": "from-purple-500 to-pink-500"
     },
     {
@@ -33,7 +33,7 @@
   "quickLinks": [
     {
       "icon": "📚",
-      "title": "zlibrary/电子书资源",
+      "title": "zlibrary-电子书资源",
       "href": "#ebooks",
       "highlight": false
     },
