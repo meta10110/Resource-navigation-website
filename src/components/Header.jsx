@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ThemeToggle from './ThemeToggle';
 import { getSiteInfo } from '../utils/loadContent';
 
 function Header({ isDarkMode, toggleTheme }) {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const siteInfo = getSiteInfo();
   const categories = [
     { name: '首页', href: '#', icon: '🏠' },
@@ -13,6 +14,10 @@ function Header({ isDarkMode, toggleTheme }) {
     { name: '学习', href: '#study', icon: '📖', color: 'amber' },
     { name: '导航', href: '#navigation', icon: '🧭', color: 'indigo' }
   ];
+
+  const handleMenuClick = () => {
+    setIsMobileMenuOpen(false);
+  };
 
   const getColorClass = (color) => {
     const colors = {
@@ -60,11 +65,51 @@ function Header({ isDarkMode, toggleTheme }) {
             </ul>
           </nav>
 
-          {/* Theme Toggle */}
+          {/* Theme Toggle & Mobile Menu Button */}
           <div className="flex items-center gap-3">
             <ThemeToggle isDark={isDarkMode} toggleTheme={toggleTheme} />
+            
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="lg:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              aria-label="Toggle menu"
+            >
+              <svg
+                className="w-6 h-6 text-gray-700 dark:text-gray-300"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                {isMobileMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
           </div>
         </div>
+
+        {/* Mobile Navigation */}
+        {isMobileMenuOpen && (
+          <nav className="lg:hidden mt-3 pb-3 border-t border-gray-200 dark:border-gray-700 pt-3">
+            <ul className="grid grid-cols-2 gap-2">
+              {categories.map((cat) => (
+                <li key={cat.name}>
+                  <a
+                    href={cat.href}
+                    onClick={handleMenuClick}
+                    className={`flex items-center gap-2 px-4 py-3 rounded-xl text-sm font-medium text-gray-700 dark:text-gray-300 transition-all duration-200 ${getColorClass(cat.color)}`}
+                  >
+                    <span className="text-xl">{cat.icon}</span>
+                    <span>{cat.name}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )}
       </div>
     </header>
   );
