@@ -95,7 +95,7 @@ function FeaturedResources() {
       </section>
 
       {/* ============================================
-          📌 第二部分：精选资源推荐
+          📌 第二部分：快速导航卡片
           数据来源：content.json 中的 categories 对象
           ============================================ */}
       <section className="py-16 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 transition-colors">
@@ -237,10 +237,10 @@ function QuickLink({ icon, title, href, highlight }) {
       </span>
       
       {/* 📝 按钮文字
-          text-sm: 文字大小（可改为 text-xs, text-base, text-lg）
+          text-base: 文字大小（可改为 text-xs, text-sm, text-lg, text-xl）
           font-semibold: 字体粗细（可改为 font-medium, font-bold）
       */}
-      <span className={`text-sm font-semibold ${
+      <span className={`text-base font-semibold ${
         highlight 
           ? 'text-white' 
           : 'text-gray-800 dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-blue-400'

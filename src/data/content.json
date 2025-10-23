@@ -77,13 +77,13 @@
           "buttons": [
             {
               "text": "官网/镜像入口",
-              "href": "https://baidu.com",
+              "href": "https://pan.quark.cn/s/335e10f44eb2?pwd=chuC",
               "primary": true,
               "icon": "🔗"
             },
             {
               "text": "客户端下载",
-              "href": "https://baidu.com",
+              "href": "https://pan.quark.cn/s/335e10f44eb2?pwd=chuC",
               "primary": false,
               "icon": "⬇️"
             }

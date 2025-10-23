@@ -32,8 +32,17 @@ function Header({ isDarkMode, toggleTheme }) {
   };
 
   return (
-    <header className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl shadow-sm sticky top-0 z-50 border-b border-gray-200/50 dark:border-gray-700/50 transition-colors">
-      <div className="container mx-auto py-3 px-6">
+    <>
+      {/* 透明遮罩层 - 点击关闭菜单 */}
+      {isMobileMenuOpen && (
+        <div
+          className="fixed inset-0 bg-black/20 dark:bg-black/40 z-40 lg:hidden"
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
+
+      <header className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl shadow-sm sticky top-0 z-50 border-b border-gray-200/50 dark:border-gray-700/50 transition-colors">
+        <div className="container mx-auto py-3 px-6">
         <div className="flex items-center justify-between gap-4">
           {/* Logo */}
           <a href="#" className="flex items-center group flex-shrink-0">
@@ -112,6 +121,7 @@ function Header({ isDarkMode, toggleTheme }) {
         )}
       </div>
     </header>
+    </>
   );
 }
 

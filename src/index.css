@@ -21,7 +21,7 @@ body {
   flex-direction: column;
 }
 
-/* 自定义滚动条 */
+/* 自定义滚动条 - 浅色模式 */
 ::-webkit-scrollbar {
   width: 12px;
   height: 12px;
@@ -40,6 +40,20 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(to bottom, #2563eb, #7c3aed);
+}
+
+/* 自定义滚动条 - 暗夜模式 */
+.dark ::-webkit-scrollbar-track {
+  background: linear-gradient(to bottom, #1f2937, #111827);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #4b5563, #6b7280);
+  border: 2px solid #1f2937;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #6b7280, #9ca3af);
 }
 
 /* 添加一些动画 */
